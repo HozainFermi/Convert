@@ -1,0 +1,119 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Border >
+        <Border.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,2" >
+                <GradientStop Color="#172537" Offset="0.1"></GradientStop>
+                <GradientStop Color="#00C0FF" Offset="3"></GradientStop>
+
+            </LinearGradientBrush>
+        </Border.Background>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="130">
+                </ColumnDefinition>
+                <ColumnDefinition>
+
+                </ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75">
+                </RowDefinition>
+                <RowDefinition>
+                </RowDefinition>
+            </Grid.RowDefinitions>
+
+            <TextBlock FontStyle="Italic" Panel.ZIndex="1" Text="TradeTF" FontSize="27" HorizontalAlignment="Right" VerticalAlignment="Center" Foreground="White" 
+                       Margin="20,0,0,0"/>
+            <Image Width="50" Height="50" Panel.ZIndex="0" HorizontalAlignment="Left" Source="Images/logo.png"></Image>
+
+            <StackPanel Grid.Column="0" Grid.Row="1">
+                <RadioButton x:Name="Refresh" Click="Refresh_Click" Content="Refresh" Height="65" Foreground="White"  FontSize="20" Style="{StaticResource MenuBattonTheme}" />
+                <RadioButton x:Name="Set" Content="Set&#10;Cur." Height="65" Foreground="White" FontSize="20" Style="{StaticResource MenuBattonTheme}" />
+                <RadioButton x:Name="Change" Content="Change&#10;Cur." Height="65"  Padding="0,0,10,0" Foreground="White" FontSize="20" Style="{StaticResource MenuBattonTheme}" />
+                <RadioButton x:Name="Help" Content="Help" Height="65" Foreground="White" FontSize="20" Style="{StaticResource MenuBattonTheme}" />
+
+                <RadioButton x:Name="Exit"  Content="Exit" Height="50" Margin="0,60,0,0" Foreground="White" FontSize="20" Style="{StaticResource MenuBattonTheme}" Click="Exit_Click" />
+
+
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" Grid.Row="0">
+                <TextBlock  x:Name="InfoBar" Height="40" Padding="0,10,0,0" Margin="0,15,0,0" TextAlignment="Center" Text="REF= KEY= EARBUDS=" Style="{StaticResource InfoBarMainTheme}" />
+            </StackPanel>
+
+            <Grid Loaded="Grid_Loaded" Grid.Row="1" Grid.Column="1">
+                
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="70"></RowDefinition>
+                    <RowDefinition Height="70"></RowDefinition>
+                    <RowDefinition Height="70"></RowDefinition>
+                    <RowDefinition Height="70"></RowDefinition>
+                    <RowDefinition Height="70"></RowDefinition>
+                    <RowDefinition Height="70"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                
+
+                <TextBox  Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0" Height="40" Width="300" x:Name="Findbar" Style="{StaticResource ModernTextBox}" ></TextBox>
+                <Button BorderThickness="0" Background="Transparent" Click="Button_Click" Width="30" Height="30" Grid.Column="2" HorizontalAlignment="Left" Margin="0,0,0,11">
+                    <Image VerticalAlignment="Center" HorizontalAlignment="Center" Source="Images/search_btn.png" Height="40" Width="40">
+                    </Image>
+                    
+                </Button>
+               
+                <TextBlock x:Name="USD" Text="USD" Grid.Row="1" Grid.Column="0" 
+                           HorizontalAlignment="Left" VerticalAlignment="Center"
+                           FontSize="30" Margin="25,0,0,0" Foreground="DarkGray"
+                           FontStyle="Italic"/>
+                
+                <TextBox x:Name="USDField" Grid.Column="0" Grid.Row="1" Height="20" Width="100" VerticalAlignment="Center" HorizontalAlignment="Right"
+                         Margin="0,5,30,0" TextChanged="USDField_TextChanged"  ></TextBox>
+                
+                <TextBlock Margin="10" FontSize="20" x:Name="LocalCur" Text="LocalCur" Grid.Row="1" Grid.Column="1" Style="{StaticResource CurMainTheme}" />
+
+                <TextBox x:Name="LocalCurField"  Grid.Column="1" Grid.Row="1" Height="20" Width="100" VerticalAlignment="Center" HorizontalAlignment="Right"
+                         Margin="0,5,30,0" TextChanged="LocalCurField_TextChanged"></TextBox>
+                
+                <TextBlock x:Name="Key" Text="Key" Grid.Row="1" Grid.Column="2" Style="{StaticResource CurMainTheme}" />
+
+                <TextBox x:Name="KeyField" Grid.Column="2" Grid.Row="1" Height="20" Width="100" VerticalAlignment="Center" HorizontalAlignment="Right"
+                Margin="0,5,30,0" TextChanged="KeyField_TextChanged"></TextBox>
+                
+                <TextBlock x:Name="Ref" Text="Ref" Grid.Row="2" Grid.Column="2" Style="{StaticResource CurMainTheme}" />
+
+                <TextBox x:Name="RefField" Grid.Column="2" Grid.Row="2" Height="20" Width="100" VerticalAlignment="Center" HorizontalAlignment="Right"
+                Margin="0,5,30,0" TextChanged="RefField_TextChanged"></TextBox>
+                
+                <TextBlock x:Name="Rec" Text="Rec" Grid.Row="3" Grid.Column="2" Style="{StaticResource CurMainTheme}" />
+
+                <TextBox x:Name="RecField" Grid.Column="2" Grid.Row="3" Height="20" Width="100" VerticalAlignment="Center" HorizontalAlignment="Right"
+         Margin="0,5,30,0" TextChanged="RecField_TextChanged"></TextBox>
+                
+                <TextBlock Margin="10" x:Name="Scrap" Text="Scrap" Grid.Row="4" Grid.Column="2" Style="{StaticResource CurMainTheme}" />
+
+                <TextBox x:Name="ScrapField" Grid.Column="2" Grid.Row="4" Height="20" Width="100" VerticalAlignment="Center" HorizontalAlignment="Right"
+         Margin="0,5,30,0" TextChanged="ScrapField_TextChanged"></TextBox>
+                
+                
+
+            </Grid>
+        </Grid>
+
+    </Border>
+</Window>
